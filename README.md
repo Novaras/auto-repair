@@ -2,6 +2,8 @@
 
 This is a demo repo of a _working mod_ built using [`novaras/modkit`](https://github.com/Novaras/modkit).
 
+Once cloned (or otherwise available on your machine), you can run this using `-moddatapath` as you would any other mod!
+
 In it, we define a single script which makes all repairer ships seek out ships from the players own fleet which are in need of repairs, and repair them automatically.
 
 ## Composing custom code:
