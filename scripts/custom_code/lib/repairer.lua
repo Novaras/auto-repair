@@ -58,9 +58,5 @@ function repairers_proto:update()
 
 			self:repair(modkit.table.first(damaged_ships)); -- repair the top result
 		end
-	else
-		
 	end
 end
-
-modkit.compose:addShipProto("kus_supportfrigate", repairers_proto);
