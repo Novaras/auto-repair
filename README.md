@@ -8,7 +8,7 @@ Once cloned (or otherwise available on your machine), you can run this using `-m
 
 ---
 
-## Technical details below
+## Technical details below! 🤖 
 ### Composing custom code:
 
 This mod is a very good example of modkit code composition.
