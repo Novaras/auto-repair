@@ -1,7 +1,7 @@
 repairers_proto = {
 	attribs = function (c, p, s)
 		return {
-			family_weights = { -- custom families
+			family_weights = { -- custom families (just an example list :])
 				corvette = 1,
 				frigate = 1.5,
 				resource = 4,
@@ -26,13 +26,18 @@ function repairers_proto:targetPriority(target)
 	return distance_weight * missing_health_weight;
 end
 
+-- returns whether or not we should perform a rescan for new targets
+-- this is important to control; since distance is a part of the weight function and we call update()
+-- every second, we need to make sure we dont flit between targets whose weights might be swapping
+-- in order.
+function repairers_proto:shouldRescan()
+	return self._rescan_after and Universe_GameTime() > self._rescan_after;
+end
+
+-- update hook, called every second (in .ship file)
 function repairers_proto:update()
-	if (self._rescan_after) then
-		print("rescan after: " .. self._rescan_after);
-		print("cgt: " .. Universe_GameTime());
-	end
-	if (self._rescan_after and Universe_GameTime() > self._rescan_after) then
-		self._rescan_after = nil;
+	if (self:shouldRescan()) then
+		self._rescan_after = nil; -- if we need to rescan, remove the guard to the following if
 	end
     if (self._rescan_after == nil) then
 		-- get all damaged ships belonging to us
@@ -45,7 +50,7 @@ function repairers_proto:update()
 
 		modkit.table.printTbl(modkit.table.first(damaged_ships), "Top priority ship:");
 
-		-- if any found, sort them by our prio algorithm, repair the top result (heaviest weighted target)
+		-- if any found, sort them by our prio algorithm, repair the top result (heaviest weighted target):
 		if (modkit.table.length(damaged_ships) > 0) then
 			if (modkit.table.length(damaged_ships) > 1) then
 				sort(
@@ -56,7 +61,8 @@ function repairers_proto:update()
 				);
 			end
 
-			self:repair(modkit.table.first(damaged_ships)); -- repair the top result
+			local top_result = modkit.table.first(damaged_ships);
+			self:repair(top_result); -- repair the top result
 		end
 	end
 end
