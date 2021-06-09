@@ -14,7 +14,7 @@ repairers_proto = {
 
 -- makes the repairer repair the target
 function repairers_proto:repair(target)
-	self._rescan_after = Universe_GameTime() + 5; -- at least 10s into the future, meaning we spend at least 5s on this target
+	self._rescan_after = Universe_GameTime() + 5; -- at least 5s into the future, meaning we spend at least 5s on this target
 	SobGroup_RepairSobGroup(self.own_group, target.own_group);
 end
 
