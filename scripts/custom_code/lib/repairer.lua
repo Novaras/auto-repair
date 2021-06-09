@@ -1,3 +1,4 @@
+-- prototype table for any 'repairer' ship (we can combine prototypes as we see fit)
 repairers_proto = {
 	attribs = function (c, p, s)
 		return {
@@ -39,7 +40,7 @@ function repairers_proto:update()
 	if (self:shouldRescan()) then
 		self._rescan_after = nil; -- if we need to rescan, remove the guard to the following if
 	end
-    if (self._rescan_after == nil) then
+	if (self._rescan_after == nil) then
 		-- get all damaged ships belonging to us
 		local damaged_ships = modkit.table.pack(modkit.table.filter(
 			GLOBAL_REGISTER:all(),
