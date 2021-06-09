@@ -25,7 +25,9 @@ modkit.compose:addShipProto("tai_supportfrigate", repairers_proto);
 
 Thats it!
 
-This method of applying prototypes for ship types is _extremely_ flexible. **Pretty much any table can be passed to `addShipProto`**, and its keys will become the keys of that ship (plus the keys it already inherited from the `modkit-` base prototypes).
+You may notice that we make use of 'base prototypes' too (added with `addBaseProto` in the `modkit-*` files). These are _global_ prototypes for all ships, and all ships will have these properties available to use (such as `ship:HP()`, `ship:attackFamily()` etc.)!
+
+This method of layering prototypes for ship types is _extremely_ flexible. **Pretty much any table can be passed to `addShipProto`**, and its keys will become the keys of that ship (plus the keys it already inherited from the `modkit-` base prototypes).
 
 There is a reserved special key, `"attribs"`, which can be a function. If it is, it will be passed the regular three hook arguments (`CustomGroup`, `playerIndex`, `shipID`) and is expected to return a plain table (presumably making use of the arguments).
 
