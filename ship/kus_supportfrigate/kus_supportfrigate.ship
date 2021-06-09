@@ -1,7 +1,7 @@
 NewShipType = StartShipConfig()
 NewShipType.displayedName="$10028"
 NewShipType.sobDescription="$10029"
-NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 26000)
+NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 21000)
 NewShipType.regentime=1500
 NewShipType.minRegenTime=1500
 NewShipType.sideArmourDamage = getShipNum(NewShipType, "sideArmourDamage", 1.2)
@@ -76,10 +76,10 @@ NewShipType.antiFighterValue=0
 NewShipType.antiCorvetteValue=0
 NewShipType.antiFrigateValue=0
 NewShipType.totalValue=8
-NewShipType.buildCost=800
-NewShipType.buildTime=85
+NewShipType.buildCost=600
+NewShipType.buildTime=65
 NewShipType.buildPriorityOrder=30
-NewShipType.retaliationRange=5500
+NewShipType.retaliationRange=2000
 NewShipType.retaliationDistanceFromGoal=160
 NewShipType.visualRange=1000
 NewShipType.prmSensorRange=5000
@@ -113,7 +113,7 @@ NewShipType.minimumZoomFactor=0.63
 NewShipType.selectionLimit=150000
 NewShipType.preciseATILimit=0
 NewShipType.selectionPriority=75
-NewShipType.militaryUnit=1
+NewShipType.militaryUnit=0
 addAbility(NewShipType,"MoveCommand",1,0);
 addAbility(NewShipType,"CanDock",1,0);
 NewShipType.dockTimeBetweenTwoFormations=1
@@ -131,13 +131,14 @@ NewShipType.launchNrOfShipsInDockFormation=1
 NewShipType.launchFormation="delta"
 addAbility(NewShipType,"ShipHold",1,0,0,"rallypoint","",70,
 {Fighter="36"},
-{Corvette="75"});
+{Corvette="340"});
 addAbility(NewShipType,"ParadeCommand",1);
 addAbility(NewShipType,"WaypointMove");
 addAbility(NewShipType,"HyperSpaceCommand",1,1.1,200,700,0,4);
-addAbility(NewShipType,"CanAttack",1,1,0,1,0.35,1.5,"Capturer, Frigate, SmallCapitalShip, BigCapitalShip, Mothership, Utility, Corvette, Corvette_hw1, Fighter, Fighter_hw1","Frontal_SupportFrigate",
+addAbility(NewShipType,"CanAttack",1,1,0,1,0.35,1.5,"Capturer, Frigate, SmallCapitalShip, BigCapitalShip, Mothership, Utility, Corvette_hw1, Corvette, Fighter_hw1, Fighter, Swarmer","Frontal_SupportFrigate",
 {Fighter="movetotargetandshoot_Frigate_vs_Fighters"},
 {Fighter_hw1="movetotargetandshoot_Frigate_vs_Fighters"},
+{Swarmer="movetotargetandshoot_Frigate_vs_Fighters"},
 {Corvette="movetotargetandshoot_Frigate_vs_Corvettes"},
 {Corvette_hw1="movetotargetandshoot_Frigate_vs_Corvettes"},
 {Munition="Frontal_SupportFrigate"},
@@ -153,7 +154,7 @@ addAbility(NewShipType,"RepairCommand",1,440,1,1,"Frontal_SupportFrigate",
 {SuperCap=2.0}, 
 {BattleCruiser=2.0}, 
 {Carrier=1.5}, 
-{Frigate=1.5},
+{Frigate=2.0},
 {Corvette=1.5},
 {EndRepairRates=0},
 {Corvette="Frontal_RepairFrigate_Frigate"},
@@ -162,7 +163,7 @@ addAbility(NewShipType,"RepairCommand",1,440,1,1,"Frontal_SupportFrigate",
 {SmallCapitalShip="frontal_RepairFrigate_SmallCap"},
 {BigCapitalShip="Frontal_RepairFrigate_BigCap"},
 {Mothership="frontal_RepairFrigate_Mothership"});
-addAbility(NewShipType,"RetireAbility",1,1);
+addAbility(NewShipType,"RetireAbility",1,0);
 LoadModel(NewShipType,1);
 StartShipHardPointConfig(NewShipType,"Weapon_Gun0","Hardpoint_Gun0","Weapon","Innate","Ship","Kus_SupportGun","","","","","","","","");
 StartShipWeaponConfig(NewShipType,"Kus_SupportGunHeal","Weapon_Rep0","Weapon_Rep0");
@@ -185,9 +186,9 @@ loadLatchPointList(NewShipType,"RepCap","RepairPoint1","RepairPoint2");
 NewShipType.minFalloffDamageDist=100
 NewShipType.maxFalloffDamageDist=100*2
 NewShipType.maxFalloffScuttleDamageDist=100*4
-NewShipType.explosiveScuttleDamageOnDeath=1125
+NewShipType.explosiveScuttleDamageOnDeath=130
 NewShipType.maxFalloffForce=500*10
-NewShipType.explosiveDamageOnDeath=225												 
+NewShipType.explosiveDamageOnDeath=50											 
 NewShipType.hideNormalAttackUICooldown=1
 NewShipType.canSurround=1
 
