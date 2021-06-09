@@ -6,7 +6,10 @@ Once cloned (or otherwise available on your machine), you can run this using `-m
 
 **In it, we define a single script which makes all repairer ships seek out ships from the players own fleet which are in need of repairs, and repair them automatically, prioritising ships according to a _custom priority algorithm_!**
 
-## Composing custom code:
+---
+
+## Technical details below
+### Composing custom code:
 
 This mod is a very good example of modkit code composition.
 
