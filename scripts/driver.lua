@@ -25,7 +25,7 @@ if (H_DRIVER == nil) then
 		-- somewhere in `custom_code/<race>/<custom-ship>.lua`.
 		local caller = GLOBAL_REGISTER:set(
 			ship_id,
-			modkit.compose:instantiate(type_group, player, ship_id)
+			modkit.compose:instantiate(type_group, player_index, ship_id)
 		);
 		-- ensure non-nil when calling these:
 		for i, v in {
